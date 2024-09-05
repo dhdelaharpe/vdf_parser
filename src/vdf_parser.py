@@ -8,6 +8,12 @@ class VDF:
     }
 
     def __init__(self,options=None):
+        '''
+        :param options: (dict)  
+            :types bool: (True) detect and convert values into data types
+            :arrayify bool: (True) convert repeated keys into lists to retain them
+            :conditionals str/list[str]: (None) conditional blocks e.g. "key" "value" [$DEBUG] will only be included if "DEBUG" is added to conditionals, default None=includeall
+            '''
         #setup options
         if options is None:
             options = {}
@@ -24,9 +30,7 @@ class VDF:
     def parseVdf(self,text):
         '''Converts a text representation of vdf file into a dictionary
         :param text: (str) vdf text
-        :param options: (dict)  :types bool: (True) detect and convert values into data types
-                                :arrayify bool: (True) convert repeated keys into lists to retain them
-                                :conditionals str/list[str]: (None) Whether to include conditional blocks e.g. "key" "value" [$DEBUG] will only be included if "DEBUG" is added to conditionals, default None=includeall
+        
         :returns: (dict) representation of vdf file
         '''
         if not isinstance(text, str):
