@@ -37,6 +37,8 @@ class VDF:
             raise TypeError('Expected parameter to be string')
 
         lines = text.splitlines()
+        if(lines[0].startswith('\ufeff')):#remove BOM 
+            lines[0]=lines[0][1:]
         obj = {}
         stack = [obj]
         expect_bracket = False
